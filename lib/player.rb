@@ -1,10 +1,9 @@
 class Player
-  attr_accessor :name : token :score
+  attr_accessor :name, :token, :score
 
-  def initialize(nom, token)
+  def initialize(name, token)
     @name = name
     @token = token
     @score = 0
   end
-
 end
