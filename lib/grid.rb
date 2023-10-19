@@ -1,16 +1,17 @@
 require 'player'
-
+# Définition de la classe "Grid" pour représenter le plateau du jeu Tic-Tac-Toe.
 class Grid
+  # Attribut qui stocke l'état du plateau (grille).
   attr_accessor :square
-
+  # Constructeur de la classe "Grid". Il initialise le plateau avec des cases vides.
   def initialize
     @square = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
   end
-
+  # Méthode pour afficher le plateau vide.
   def empty_board
     loading_board(@square)
   end
-
+  # Méthode pour afficher le plateau actuel avec les pions des joueurs.
   def loading_board(arr)
     puts " "
     puts "       0     1     2  "
@@ -23,7 +24,7 @@ class Grid
     puts "    |_____|_____|_____|                                 "
     puts " "
   end
-
+  # Méthode pour placer le pion d'un joueur sur le plateau.
   def play(player, position)
     position = position.upcase
     if player == "player0"
@@ -39,16 +40,23 @@ class Grid
     elsif position[0] == "C"
       i = 2
     end
-
+    # Place le pion du joueur (X ou O) à la position spécifiée sur le plateau.
     @square[i][position[1].to_i] = l
-    return loading_board(@square)
+    return loading_board(@square) # Affiche le plateau mis à jour.
   end
-
+  # Méthode pour vérifier si un joueur a gagné en comparant les cases du plateau.
   def iswin?(token)
-    if (@square[0][0] == @square[0][1] && @square[0][1] == @square[0][2] && @square[0][0] == token) || (@square[1][0] == @square[1][1] && @square[1][1] == @square[1][2] && @square[1][0] == token) || (@square[2][0] == @square[2][1] && @square[2][1] == @square[2][2] && @square[2][0] == token) || (@square[0][0] == @square[1][0] && @square[1][0] == @square[2][0] && @square[0][0] == token) || (@square[0][1] == @square[1][1] && @square[1][1] == @square[2][1] && @square[0][1] == token) || (@square[0][2] == @square[1][2] && @square[1][2] == @square[2][2] && @square[0][2] == token) || (@square[0][0] == @square[1][1] && @square[1][1] == @square[2][2] && @square[0][0] == token) || (@square[0][2] == @square[1][1] && @square[1][1] == @square[2][0] && @square[0][2] == token)
+    if (@square[0][0] == @square[0][1] && @square[0][1] == @square[0][2] && @square[0][0] == token) || 
+       (@square[1][0] == @square[1][1] && @square[1][1] == @square[1][2] && @square[1][0] == token) || 
+       (@square[2][0] == @square[2][1] && @square[2][1] == @square[2][2] && @square[2][0] == token) || 
+       (@square[0][0] == @square[1][0] && @square[1][0] == @square[2][0] && @square[0][0] == token) || 
+       (@square[0][1] == @square[1][1] && @square[1][1] == @square[2][1] && @square[0][1] == token) || 
+       (@square[0][2] == @square[1][2] && @square[1][2] == @square[2][2] && @square[0][2] == token) || 
+       (@square[0][0] == @square[1][1] && @square[1][1] == @square[2][2] && @square[0][0] == token) || 
+       (@square[0][2] == @square[1][1] && @square[1][1] == @square[2][0] && @square[0][2] == token)
       return true
-   else
+    else
       return false
-   end   
+    end
   end
 end
