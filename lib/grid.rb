@@ -46,14 +46,14 @@ class Grid
   end
   # Méthode pour vérifier si un joueur a gagné en comparant les cases du plateau.
   def iswin?(token)
-    if (@square[0][0] == @square[0][1] && @square[0][1] == @square[0][2] && @square[0][0] == token) || 
-       (@square[1][0] == @square[1][1] && @square[1][1] == @square[1][2] && @square[1][0] == token) || 
-       (@square[2][0] == @square[2][1] && @square[2][1] == @square[2][2] && @square[2][0] == token) || 
-       (@square[0][0] == @square[1][0] && @square[1][0] == @square[2][0] && @square[0][0] == token) || 
-       (@square[0][1] == @square[1][1] && @square[1][1] == @square[2][1] && @square[0][1] == token) || 
-       (@square[0][2] == @square[1][2] && @square[1][2] == @square[2][2] && @square[0][2] == token) || 
-       (@square[0][0] == @square[1][1] && @square[1][1] == @square[2][2] && @square[0][0] == token) || 
-       (@square[0][2] == @square[1][1] && @square[1][1] == @square[2][0] && @square[0][2] == token)
+    if (@square[0][0] == @square[0][1] && @square[0][1] == @square[0][2] && @square[0][0] == token) || #[0][0], [0][1], [0][2] 1hori
+       (@square[1][0] == @square[1][1] && @square[1][1] == @square[1][2] && @square[1][0] == token) || #[1][0], [1][1], [1][2] 2hori
+       (@square[2][0] == @square[2][1] && @square[2][1] == @square[2][2] && @square[2][0] == token) || #[2][0], [2][1], [2][2] 3hori
+       (@square[0][0] == @square[1][0] && @square[1][0] == @square[2][0] && @square[0][0] == token) || #[0][0], [1][0], [2][0] 1verti
+       (@square[0][1] == @square[1][1] && @square[1][1] == @square[2][1] && @square[0][1] == token) || #[0][1], [1][1], [2][1] 2verti
+       (@square[0][2] == @square[1][2] && @square[1][2] == @square[2][2] && @square[0][2] == token) || #[0][2], [1][2], [2][2] 3verti
+       (@square[0][0] == @square[1][1] && @square[1][1] == @square[2][2] && @square[0][0] == token) || #[0][0], [1][1], [2][2] 1diago
+       (@square[0][2] == @square[1][1] && @square[1][1] == @square[2][0] && @square[0][2] == token)    #[0][2], [1][1], [2][0] 2diago
       return true
     else
       return false

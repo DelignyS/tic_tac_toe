@@ -1,4 +1,3 @@
-# Configuration pour permettre au programme de trouver les fichiers dans le dossier "lib".
 $:.unshift File.expand_path("./../lib", __FILE__)
 require 'hub'
 require 'pry'
